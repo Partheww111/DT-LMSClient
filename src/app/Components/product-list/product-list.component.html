@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+    
+        <div class="col-md-2">
+            <h2>Product List</h2>
+        </div>
+        <div class="col-md-8"></div>
+        <div class="col-md-2">
+            <button class="btn btn-outline-primary" routerLink="/productAdd">Add Product</button>
+        </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>SKU</th>
+            <th>Category</th>
+            <th>Base Price</th>
+            <th>MRP</th>
+            <th>Description</th>
+            <th>Currency</th>
+            <th>Manufactured Date</th>
+            <th>Expire Date</th>
+            <th>Edit</th>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of Products">
+            <td>{{ product.name }}</td>
+            <td>{{ product.mobileNo }}</td>
+            <td>{{ product.email }}</td>
+            <td>{{ product.libraryId }}</td>
+            <td>{{ product.branchId }}</td>
+            <td>{{ product.isLibrarian }}</td>
+            <td>{{ product.isBranchAdmin }}</td>
+            <td>{{ product.isActive }}</td>
+            <td>{{ product.expireDate }}</td>
+            <td>
+              <button class="btn btn-outline-success" [routerLink]="['/productEdit', product.productId]">Edit</button>
+            </td>
+            <td>
+              <button class="btn btn-outline-danger" (click)="DeleteProduct(product.productId)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
